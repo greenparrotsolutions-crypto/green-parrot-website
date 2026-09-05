@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Parrot Solutions | Digital Marketing, Websites &amp; Business Growth</title>
+  <meta name="description" content="Green Parrot Solutions helps businesses grow with website development, branding, social media, Meta Ads, Google Ads, video content, influencer marketing and CRM solutions." />
+  <link rel="canonical" href="https://www.greenparrotsolutions.com/" />
+
+  <meta property="og:title" content="Green Parrot Solutions | Digital Marketing, Websites & Business Growth" />
+  <meta property="og:description" content="We help businesses build their brand, attract the right audience, generate leads and grow with smart digital solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.greenparrotsolutions.com/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Green Parrot Solutions" />
+  <meta name="twitter:description" content="Ideas. Strategy. Technology. Growth." />
+
+  <link rel="icon" href="/favicon/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow reveal">IDEAS &times; STRATEGY &times; TECHNOLOGY &times; GROWTH</p>
+        <h1 class="hero-heading reveal">
+          Let's Turn Your Ideas Into<br />
+          <span class="text-green">Real Growth.</span>
+        </h1>
+        <p class="hero-sub reveal">
+          We help businesses build their brand, attract the right audience,
+          generate leads and grow with smart digital solutions.
+        </p>
+        <div class="hero-buttons reveal">
+          <a href="#contact" class="btn btn-primary">Get Free Consultation &rarr;</a>
+          <a href="#services" class="btn btn-outline">View Our Services</a>
+        </div>
+        <ul class="hero-benefits reveal">
+          <li>&#10003; More Leads</li>
+          <li>&#10003; Stronger Brand</li>
+          <li>&#10003; Better Sales</li>
+          <li>&#10003; Long-Term Growth</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-mockup">
+          <div class="mockup-bar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-chart">
+              <div class="bar" style="height:35%"></div>
+              <div class="bar" style="height:55%"></div>
+              <div class="bar" style="height:40%"></div>
+              <div class="bar" style="height:70%"></div>
+              <div class="bar" style="height:90%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card card-1" data-float>
+          <span class="fc-label">META ADS</span>
+          <span class="fc-value">+125 New Leads</span>
+        </div>
+        <div class="floating-card card-2" data-float>
+          <span class="fc-label">GOOGLE ADS</span>
+          <span class="fc-value">+40% Conversions</span>
+        </div>
+        <div class="floating-card card-3" data-float>
+          <span class="fc-label">SOCIAL MEDIA</span>
+          <span class="fc-value">+210% Reach</span>
+        </div>
+        <div class="floating-card card-4" data-float>
+          <span class="fc-label">WHATSAPP</span>
+          <span class="fc-value">New Enquiry</span>
+        </div>
+        <div class="floating-card card-5" data-float>
+          <span class="fc-label">SALES</span>
+          <span class="fc-value">+32% Growth</span>
+        </div>
+
+        <div class="hand-note">
+          <span>Your Growth Partner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUSTED INDUSTRIES ============ -->
+  <section class="trusted-strip">
+    <div class="container">
+      <p class="strip-title">TRUSTED BY BUSINESSES ACROSS INDUSTRIES</p>
+      <div class="industries">
+        <span>Retail</span>
+        <span>Real Estate</span>
+        <span>Education</span>
+        <span>Healthcare</span>
+        <span>Fitness</span>
+        <span>E-commerce</span>
+        <span>Hospitality</span>
+        <span>Local Business</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="reveal">Complete Digital Solutions<br />Under One Roof</h2>
+        <p class="reveal">From strategy to execution, we provide end-to-end digital solutions tailored to your business goals.</p>
+      </div>
+
+      <div class="services-grid">
+        <% const services = [
+          { title: "Website Development", desc: "Modern, fast and conversion-focused websites.", icon: "monitor" },
+          { title: "Branding & Identity", desc: "Build a brand that people remember.", icon: "palette" },
+          { title: "Social Media Management", desc: "Content, strategy and community growth.", icon: "share-2" },
+          { title: "Meta Ads", desc: "Targeted campaigns designed to bring real results.", icon: "target" },
+          { title: "Google Ads", desc: "Reach high-intent customers with smart ad strategies.", icon: "search" },
+          { title: "Video Editing & Content Creation", desc: "High-quality videos for ads, reels and brand content.", icon: "video" },
+          { title: "Influencer Marketing", desc: "Collaborate with the right influencers to reach more people.", icon: "users" },
+          { title: "CRM Solutions", desc: "Automate, manage and close more leads.", icon: "layout-dashboard" }
+        ]; %>
+        <% services.forEach(function(s) { %>
+        <div class="service-card reveal">
+          <div class="service-icon"><i data-lucide="<%= s.icon %>"></i></div>
+          <h3><%= s.title %></h3>
+          <p><%= s.desc %></p>
+          <a href="#contact" class="learn-more">Learn More <span>&rarr;</span></a>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW WE WORK ============ -->
+  <section class="process">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="reveal">A Simple Process.<br />Powerful Results.</h2>
+        <p class="reveal">We keep things simple, transparent and result-driven — so you can focus on what you do best.</p>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <div class="timeline-line" id="timelineLine"></div>
+        <% const steps = [
+          { n: "01", title: "Discover", desc: "We understand your goals." },
+          { n: "02", title: "Plan", desc: "We create a customized strategy." },
+          { n: "03", title: "Execute", desc: "Our team brings the strategy to life." },
+          { n: "04", title: "Track", desc: "We monitor and optimize performance." },
+          { n: "05", title: "Grow", desc: "More leads, more sales and long-term success." }
+        ]; %>
+        <% steps.forEach(function(step) { %>
+        <div class="timeline-step reveal">
+          <div class="step-circle"><%= step.n %></div>
+          <h3><%= step.title %></h3>
+          <p><%= step.desc %></p>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ECOSYSTEM ============ -->
+  <section class="ecosystem">
+    <div class="container">
+      <div class="section-head light">
+        <h2 class="reveal">Everything Works Better<br />When It Works Together.</h2>
+      </div>
+
+      <div class="ecosystem-wheel">
+        <div class="ecosystem-center">GROWTH</div>
+        <div class="eco-node node-1">BRAND</div>
+        <div class="eco-node node-2">WEBSITE</div>
+        <div class="eco-node node-3">CONTENT</div>
+        <div class="eco-node node-4">ADS</div>
+        <div class="eco-node node-5">SOCIAL</div>
+        <div class="eco-node node-6">CRM</div>
+        <div class="eco-node node-7">SALES</div>
+        <svg class="eco-lines" viewBox="0 0 400 400" fill="none">
+          <circle cx="200" cy="200" r="150" stroke="#22C55E" stroke-opacity="0.25" stroke-width="1.5" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CRM SECTION ============ -->
+  <section class="crm-section" id="crm">
+    <div class="container crm-grid">
+      <div class="crm-content">
+        <p class="eyebrow reveal">OUR CRM</p>
+        <h2 class="reveal">Turn Enquiries Into<br />Customers Automatically.</h2>
+        <p class="reveal">Capture leads from Meta Ads, your website and WhatsApp, qualify them, assign them to your team and track follow-ups — all in one system.</p>
+        <div class="hero-buttons reveal">
+          <a href="https://crm.greenparrotsolutions.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Our CRM &rarr;</a>
+          <a href="#contact" class="btn btn-outline">See How It Works</a>
+        </div>
+      </div>
+
+      <div class="crm-visual">
+        <div class="hero-mockup crm-mockup">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-body crm-body">
+            <div class="crm-metrics">
+              <div class="crm-metric"><span class="cm-label">New Leads</span><span class="cm-value" data-counter="124">0</span></div>
+              <div class="crm-metric"><span class="cm-label">In Progress</span><span class="cm-value" data-counter="86">0</span></div>
+              <div class="crm-metric"><span class="cm-label">Converted</span><span class="cm-value" data-counter="32">0</span></div>
+              <div class="crm-metric"><span class="cm-label">Revenue</span><span class="cm-value">&#8377;4,52,000</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card card-crm-1" data-float>
+          <span class="fc-label">NEW LEAD</span>
+        </div>
+        <div class="floating-card card-crm-2" data-float>
+          <span class="fc-label">FOLLOW-UP TODAY</span>
+        </div>
+        <div class="floating-card card-crm-3" data-float>
+          <span class="fc-label">DEAL WON</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY GREEN PARROT ============ -->
+  <section class="why-us">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="reveal">Why Businesses Choose<br />Green Parrot Solutions</h2>
+      </div>
+      <div class="why-grid">
+        <% const why = [
+          { n: "01", title: "One Growth Partner", desc: "Marketing, technology and creative solutions under one roof." },
+          { n: "02", title: "Strategy First", desc: "We build solutions around your actual business goals." },
+          { n: "03", title: "Creative + Technology", desc: "Creative ideas powered by modern technology." },
+          { n: "04", title: "Results Focused", desc: "We focus on measurable business growth." }
+        ]; %>
+        <% why.forEach(function(w) { %>
+        <div class="why-card reveal">
+          <span class="why-num"><%= w.n %></span>
+          <h3><%= w.title %></h3>
+          <p><%= w.desc %></p>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <h2 class="reveal">We Don't Just<br />Market Businesses.<br />We Build Their<br />Digital Growth.</h2>
+      <div class="about-text reveal">
+        <p>Green Parrot Solutions helps businesses turn ideas into digital experiences, powerful marketing campaigns and scalable systems.</p>
+        <ul class="about-pillars">
+          <li>Strategy</li>
+          <li>Creativity</li>
+          <li>Technology</li>
+          <li>Growth</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="reveal">Let's Build Something<br />Great Together.</h2>
+        <p class="reveal">Tell us about your business and our team will help you find the right digital solution.</p>
+      </div>
+
+      <form id="contactForm" class="contact-form reveal" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="business">Business Name *</label>
+            <input type="text" id="business" name="business" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service">What do you need? *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Website Development</option>
+              <option>Branding & Identity</option>
+              <option>Social Media Management</option>
+              <option>Meta Ads</option>
+              <option>Google Ads</option>
+              <option>Video Editing</option>
+              <option>Influencer Marketing</option>
+              <option>CRM Solutions</option>
+              <option>Digital Marketing</option>
+              <option>Business Automation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Monthly Marketing Budget</label>
+            <select id="budget" name="budget">
+              <option value="">Select a range</option>
+              <option>Under ₹10K</option>
+              <option>₹10K – ₹25K</option>
+              <option>₹25K – ₹50K</option>
+              <option>₹50K – ₹1L</option>
+              <option>₹1L+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell us about your business</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <div id="formErrors" class="form-errors" role="alert"></div>
+        <div id="formSuccess" class="form-success" role="status"></div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+          Get My Free Consultation &rarr;
+        </button>
+        <p class="form-note">Your information is safe with us.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="reveal">Ready to Grow Your Business?</h2>
+      <p class="reveal">Let's turn your ideas into a digital growth system.</p>
+      <a href="#contact" class="btn btn-primary reveal">Start Your Journey &rarr;</a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/animations.js"></script>
+  <script src="/js/contact.js"></script>
+</body>
+</html>

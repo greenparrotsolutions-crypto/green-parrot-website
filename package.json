@@ -1,0 +1,14 @@
+{
+  "name": "green-parrot-solutions",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ejs": "^3.1.10",
+    "dotenv": "^16.4.5"
+  }
+}
