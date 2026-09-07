@@ -19,18 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ---- Lead storage (JSON file) ----
-// NOTE: chosen instead of SQLite deliberately. SQLite requires a native
-// binary (better-sqlite3 / sqlite3) that frequently fails to build in
-// serverless environments like Vercel's build step. A JSON file avoids
-// that failure mode entirely for an initial version.
-//
-// IMPORTANT CAVEAT: if this app is deployed to Vercel specifically,
-// its filesystem is read-only/ephemeral at runtime — writes here may
-// not persist between requests or survive a redeploy. This is fine for
-// local development and for hosts with a persistent filesystem
-// (Railway, Render, a VPS, etc.), but NOT reliable long-term on Vercel.
-// See README.md for the recommended next step (a real database or an
-// email/webhook integration) before relying on this for real leads.
+// See README.md for the important Vercel persistence caveat.
 const LEADS_FILE = path.join(__dirname, "data", "leads.json");
 
 function readLeads() {
@@ -53,22 +42,12 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/robots.txt", (req, res) => {
-  res.type("text/plain");
-  res.send(
-    "User-agent: *\nAllow: /\nSitemap: https://www.greenparrotsolutions.com/sitemap.xml"
-  );
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
-app.get("/sitemap.xml", (req, res) => {
-  res.type("application/xml");
-  res.send(`<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.greenparrotsolutions.com/</loc>
-    <priority>1.0</priority>
-  </url>
-</urlset>`);
+app.get("/contact", (req, res) => {
+  res.render("contact");
 });
 
 app.get("/privacy-policy", (req, res) => {
@@ -87,7 +66,24 @@ app.get("/terms", (req, res) => {
   });
 });
 
-// ---- Contact API ----
+app.get("/robots.txt", (req, res) => {
+  res.type("text/plain");
+  res.send(
+    "User-agent: *\nAllow: /\nSitemap: https://www.greenparrotsolutions.com/sitemap.xml"
+  );
+});
+
+app.get("/sitemap.xml", (req, res) => {
+  res.type("application/xml");
+  res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.greenparrotsolutions.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.greenparrotsolutions.com/about</loc><priority>0.8</priority></url>
+  <url><loc>https://www.greenparrotsolutions.com/contact</loc><priority>0.8</priority></url>
+</urlset>`);
+});
+
+// ---- Contact API (used by both the Contact page form and the service modal) ----
 app.post("/api/contact", (req, res) => {
   const { name, business, phone, email, service, budget, message } = req.body;
 

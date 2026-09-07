@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Green Parrot Solutions</title>
+  <meta name="description" content="Get in touch with Green Parrot Solutions — book a free consultation for websites, marketing, or CRM." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <style>
+    /* Page-specific: business details block beside the form */
+    .contact-page-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+    .contact-details h3 { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+    .contact-details address { font-style: normal; color: var(--text); line-height: 1.8; margin-bottom: 20px; }
+    .contact-details p { margin-bottom: 8px; }
+    .contact-details a { color: var(--primary); font-weight: 600; }
+    @media (max-width: 1023px) {
+      .contact-page-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <section class="hero" style="padding-top: 150px; padding-bottom: 60px;">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1 class="hero-heading" style="max-width: 700px;">
+        Let's Build Something<br /><span class="text-green">Great Together.</span>
+      </h1>
+      <p class="hero-sub">
+        Tell us about your business and our team will help you find the right digital solution.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="container contact-page-grid">
+      <!--
+        TODO: double-check this address, phone, and email are current
+        before relying on this page for Meta business verification —
+        these should match your Udyam certificate and Meta Business
+        Portfolio exactly.
+      -->
+      <div class="contact-details">
+        <h3>Business Details</h3>
+        <p style="font-weight: 700; font-size: 17px; color: var(--text);">Green Parrot Solutions</p>
+        <address>
+          Meenkarai Road<br />
+          Ganapathipalayam<br />
+          Pollachi, Tamil Nadu 642103<br />
+          India
+        </address>
+        <p><span style="color: var(--muted);">Phone: </span><a href="tel:+916381843483">+91 63818 43483</a></p>
+        <p><span style="color: var(--muted);">Email: </span><a href="mailto:hello@greenparrotsolutions.com">hello@greenparrotsolutions.com</a></p>
+        <p><span style="color: var(--muted);">WhatsApp: </span><a href="https://wa.me/916381843483" target="_blank" rel="noopener noreferrer">Chat with us</a></p>
+      </div>
+
+      <form id="contactForm" class="contact-form" novalidate style="margin: 0;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="business">Business Name *</label>
+            <input type="text" id="business" name="business" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service">What do you need? *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Website Development</option>
+              <option>Branding & Identity</option>
+              <option>Social Media Management</option>
+              <option>Meta Ads</option>
+              <option>Google Ads</option>
+              <option>Video Editing</option>
+              <option>Influencer Marketing</option>
+              <option>CRM Solutions</option>
+              <option>Digital Marketing</option>
+              <option>Business Automation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Monthly Marketing Budget</label>
+            <select id="budget" name="budget">
+              <option value="">Select a range</option>
+              <option>Under ₹10K</option>
+              <option>₹10K – ₹25K</option>
+              <option>₹25K – ₹50K</option>
+              <option>₹50K – ₹1L</option>
+              <option>₹1L+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell us about your business</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <div id="formErrors" class="form-errors" role="alert"></div>
+        <div id="formSuccess" class="form-success" role="status"></div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+          Get My Free Consultation &rarr;
+        </button>
+        <p class="form-note">Your information is safe with us.</p>
+      </form>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/floatingButtons') %>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/contact.js"></script>
+</body>
+</html>

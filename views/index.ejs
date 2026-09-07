@@ -23,6 +23,7 @@
 
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/components.css" />
 </head>
 <body>
 
@@ -42,7 +43,7 @@
           generate leads and grow with smart digital solutions.
         </p>
         <div class="hero-buttons reveal">
-          <a href="#contact" class="btn btn-primary">Get Free Consultation &rarr;</a>
+          <a href="/contact" class="btn btn-primary">Get Free Consultation &rarr;</a>
           <a href="#services" class="btn btn-outline">View Our Services</a>
         </div>
         <ul class="hero-benefits reveal">
@@ -138,7 +139,7 @@
           <div class="service-icon"><i data-lucide="<%= s.icon %>"></i></div>
           <h3><%= s.title %></h3>
           <p><%= s.desc %></p>
-          <a href="#contact" class="learn-more">Learn More <span>&rarr;</span></a>
+          <a href="#" class="learn-more">Learn More <span>&rarr;</span></a>
         </div>
         <% }); %>
       </div>
@@ -205,7 +206,7 @@
         <p class="reveal">Capture leads from Meta Ads, your website and WhatsApp, qualify them, assign them to your team and track follow-ups — all in one system.</p>
         <div class="hero-buttons reveal">
           <a href="https://crm.greenparrotsolutions.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Our CRM &rarr;</a>
-          <a href="#contact" class="btn btn-outline">See How It Works</a>
+          <a href="/contact" class="btn btn-outline">See How It Works</a>
         </div>
       </div>
 
@@ -259,116 +260,24 @@
     </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="about" id="about">
-    <div class="container about-grid">
-      <h2 class="reveal">We Don't Just<br />Market Businesses.<br />We Build Their<br />Digital Growth.</h2>
-      <div class="about-text reveal">
-        <p>Green Parrot Solutions helps businesses turn ideas into digital experiences, powerful marketing campaigns and scalable systems.</p>
-        <ul class="about-pillars">
-          <li>Strategy</li>
-          <li>Creativity</li>
-          <li>Technology</li>
-          <li>Growth</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="reveal">Let's Build Something<br />Great Together.</h2>
-        <p class="reveal">Tell us about your business and our team will help you find the right digital solution.</p>
-      </div>
-
-      <form id="contactForm" class="contact-form reveal" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name *</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="business">Business Name *</label>
-            <input type="text" id="business" name="business" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="phone">Phone / WhatsApp *</label>
-            <input type="tel" id="phone" name="phone" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="service">What do you need? *</label>
-            <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option>Website Development</option>
-              <option>Branding & Identity</option>
-              <option>Social Media Management</option>
-              <option>Meta Ads</option>
-              <option>Google Ads</option>
-              <option>Video Editing</option>
-              <option>Influencer Marketing</option>
-              <option>CRM Solutions</option>
-              <option>Digital Marketing</option>
-              <option>Business Automation</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="budget">Monthly Marketing Budget</label>
-            <select id="budget" name="budget">
-              <option value="">Select a range</option>
-              <option>Under ₹10K</option>
-              <option>₹10K – ₹25K</option>
-              <option>₹25K – ₹50K</option>
-              <option>₹50K – ₹1L</option>
-              <option>₹1L+</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Tell us about your business</label>
-          <textarea id="message" name="message" rows="4"></textarea>
-        </div>
-
-        <div id="formErrors" class="form-errors" role="alert"></div>
-        <div id="formSuccess" class="form-success" role="status"></div>
-
-        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-          Get My Free Consultation &rarr;
-        </button>
-        <p class="form-note">Your information is safe with us.</p>
-      </form>
-    </div>
-  </section>
-
   <!-- ============ FINAL CTA ============ -->
   <section class="final-cta">
     <div class="container">
       <h2 class="reveal">Ready to Grow Your Business?</h2>
       <p class="reveal">Let's turn your ideas into a digital growth system.</p>
-      <a href="#contact" class="btn btn-primary reveal">Start Your Journey &rarr;</a>
+      <a href="/contact" class="btn btn-primary reveal">Start Your Journey &rarr;</a>
     </div>
   </section>
 
   <%- include('partials/footer') %>
+  <%- include('partials/floatingButtons') %>
+  <%- include('partials/serviceModal') %>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="/js/main.js"></script>
   <script src="/js/animations.js"></script>
-  <script src="/js/contact.js"></script>
+  <script src="/js/modal.js"></script>
 </body>
 </html>
