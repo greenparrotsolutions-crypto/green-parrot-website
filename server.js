@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const nodemailer = require("nodemailer");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,6 +36,37 @@ function saveLead(lead) {
   const leads = readLeads();
   leads.push(lead);
   fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2));
+}
+// ---- Email notification ----
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+  tls: {
+    rejectUnauthorized: false,
+  },
+});
+async function sendLeadEmail(lead) {
+  const mailOptions = {
+    from: `"Green Parrot Website" <${process.env.GMAIL_USER}>`,
+    to: process.env.GMAIL_USER,
+    subject: `New Lead: ${lead.name} (${lead.business})`,
+    html: `
+      <h2>New Lead from Website</h2>
+      <p><strong>Name:</strong> ${lead.name}</p>
+      <p><strong>Business:</strong> ${lead.business}</p>
+      <p><strong>Phone:</strong> ${lead.phone}</p>
+      <p><strong>Email:</strong> ${lead.email || "Not provided"}</p>
+      <p><strong>Service:</strong> ${lead.service}</p>
+      <p><strong>Budget:</strong> ${lead.budget || "Not provided"}</p>
+      <p><strong>Message:</strong> ${lead.message || "None"}</p>
+      <p><strong>Submitted:</strong> ${lead.createdAt}</p>
+    `,
+  };
+
+  await transporter.sendMail(mailOptions);
 }
 
 // ---- Routes ----
@@ -84,7 +116,7 @@ app.get("/sitemap.xml", (req, res) => {
 });
 
 // ---- Contact API (used by both the Contact page form and the service modal) ----
-app.post("/api/contact", (req, res) => {
+app.post("/api/contact", async (req, res) => {
   const { name, business, phone, email, service, budget, message } = req.body;
 
   const errors = [];
@@ -109,11 +141,18 @@ app.post("/api/contact", (req, res) => {
     createdAt: new Date().toISOString(),
   };
 
-  try {
+   try {
     saveLead(lead);
+  } catch (err) {
+    console.error("Failed to save lead to JSON backup:", err.message);
+    // Don't block the response on this — email is now the primary channel
+  }
+
+  try {
+    await sendLeadEmail(lead);
     return res.status(200).json({ success: true });
   } catch (err) {
-    console.error("Failed to save lead:", err.message);
+    console.error("Failed to send lead email:", err.message);
     return res.status(500).json({
       success: false,
       errors: ["Something went wrong. Please try again."],
